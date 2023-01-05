@@ -12,9 +12,9 @@ import static report.Report.appendToReportElementHighlight;
 
 public class Utils {
 
-    public static void scrollPage(String pixels) {
+    public static void scrollPage(String down,String up) {
         JavascriptExecutor executor = (JavascriptExecutor) getDriver();
-        executor.executeScript("window.scrollBy(0," + pixels + ")");
+        executor.executeScript("window.scrollBy("+ up +"," + down + ")");
     }
 
     public static WebElement getElement(By by) {
@@ -47,9 +47,9 @@ public class Utils {
         element.sendKeys(text, key);
     }
 
-    public static void validatePage(By by, String pixels) {
+    public static void validatePage(By by, String down,String up) {
         WebElement element = getElement(by);
-        scrollPage(pixels);
+        scrollPage(down,up);
         Assert.assertTrue(element.isDisplayed(), "Elemento ausente");
         appendToReportElementHighlight(element);
     }

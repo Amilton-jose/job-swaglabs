@@ -1,4 +1,4 @@
-package pageobjects;
+package pageobjects.decimoterceiro;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -20,7 +20,7 @@ public class CalculoPO {
     }
 
     public void validateCalculationPage() {
-        validatePage(By.id("form-calculo-decimo-terceiro"), "300");
+        validatePage(By.id("form-calculo-decimo-terceiro"), "300","0");
     }
 
     public void sendSalary(String salary) {

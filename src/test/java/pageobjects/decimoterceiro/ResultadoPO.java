@@ -1,4 +1,4 @@
-package pageobjects;
+package pageobjects.decimoterceiro;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -19,7 +19,7 @@ public class ResultadoPO {
     }
 
     public void validateResultPage() {
-        validatePage(By.id("tableResults"), "300");
+        validatePage(By.id("tableResults"), "300","0");
     }
 
     public void validateLiquidSalary(String liquidSalary) {

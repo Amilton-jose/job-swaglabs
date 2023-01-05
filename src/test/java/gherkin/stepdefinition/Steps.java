@@ -3,13 +3,9 @@ package gherkin.stepdefinition;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.openqa.selenium.By;
-import pageobjects.CalculoPO;
+import pageobjects.decimoterceiro.CalculoPO;
 import pageobjects.HomePO;
-import pageobjects.ResultadoPO;
-
-import static utils.Utils.getElement;
-import static utils.Utils.isElementPresent;
+import pageobjects.decimoterceiro.ResultadoPO;
 
 public class Steps {
 
