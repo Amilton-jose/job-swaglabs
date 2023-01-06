@@ -1,4 +1,4 @@
-package pageobjects;
+package pageobjects.mobils.decimoterceiro;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;

@@ -3,9 +3,9 @@ package gherkin.stepdefinition;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import pageobjects.HomePO;
-import pageobjects.ferias.CalculoFeriasPO;
-import pageobjects.ferias.ResultadoFeriasPO;
+import pageobjects.mobils.decimoterceiro.HomePO;
+import pageobjects.mobils.ferias.CalculoFeriasPO;
+import pageobjects.mobils.ferias.ResultadoFeriasPO;
 
 public class CalculoFeriasSteps {
 

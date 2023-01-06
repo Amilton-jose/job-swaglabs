@@ -3,9 +3,9 @@ package gherkin.stepdefinition;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import pageobjects.decimoterceiro.CalculoPO;
-import pageobjects.HomePO;
-import pageobjects.decimoterceiro.ResultadoPO;
+import pageobjects.mobils.decimoterceiro.CalculoPO;
+import pageobjects.mobils.decimoterceiro.HomePO;
+import pageobjects.mobils.decimoterceiro.ResultadoPO;
 
 public class Steps {
 

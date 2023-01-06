@@ -1,4 +1,4 @@
-package pageobjects.ferias;
+package pageobjects.mobils.ferias;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
