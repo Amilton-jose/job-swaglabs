@@ -43,7 +43,7 @@ public class Report {
     }
 
     public static void appendToReportElementHighlight(WebElement element) {
-        ((JavascriptExecutor)Drivers.getDriver()).executeScript("arguments[0].style.border='3px solid red'", element);
+        ((JavascriptExecutor)Drivers.getDriver()).executeScript("arguments[0].style.border='3px solid blue'", element);
         appendToReport();
         ((JavascriptExecutor)Drivers.getDriver()).executeScript("arguments[0].setAttribute('style', arguments[1]);", element, "");
     }
