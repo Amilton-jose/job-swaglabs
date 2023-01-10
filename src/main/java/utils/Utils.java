@@ -1,6 +1,9 @@
 package utils;
 
-import org.openqa.selenium.*;
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
@@ -12,9 +15,9 @@ import static report.Report.appendToReportElementHighlight;
 
 public class Utils {
 
-    public static void scrollPage(String down,String up) {
+    public static void scrollPage(String down, String up) {
         JavascriptExecutor executor = (JavascriptExecutor) getDriver();
-        executor.executeScript("window.scrollBy("+ up +"," + down + ")");
+        executor.executeScript("window.scrollBy(" + up + "," + down + ")");
     }
 
     public static WebElement getElement(By by) {
@@ -47,9 +50,9 @@ public class Utils {
         element.sendKeys(text, key);
     }
 
-    public static void validatePage(By by, String down,String up) {
+    public static void validatePage(By by, String down, String up) {
         WebElement element = getElement(by);
-        scrollPage(down,up);
+        scrollPage(down, up);
         Assert.assertTrue(element.isDisplayed(), "Elemento ausente");
         appendToReportElementHighlight(element);
     }
@@ -59,10 +62,18 @@ public class Utils {
         try {
             getDriver().findElement(by);
             isPresent = true;
-        }catch (Exception e) {
+        } catch (Exception e) {
             isPresent = false;
         }
         return isPresent;
+    }
+
+    public static void espera(int segundos) {
+        try {
+            Thread.sleep(segundos * 1000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
     }
 
 }

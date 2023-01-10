@@ -8,6 +8,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="Framework-de-testes" />
+        <module name="job-swaglabs" />
         <module name="frame" />
       </profile>
     </annotationProcessing>
