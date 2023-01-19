@@ -6,7 +6,7 @@
 ## **Configurando projeto**
 ### 1° Clone o projeto para seu computador
 ### 2° Depois de clonado abra o a pasta do projeto clonado na sua IDE (Exemplo: Intellij) .
-### 3° Depois de aberto o projeto. Vá até o arquivo pom.xml. Dentro desse arquivo  irá aparecer um botão com a logo do Maven clique e espera baixar as depedências.
+### 3° Depois de aberto o projeto. Vá até o arquivo pom.xml. Dentro desse arquivo  irá aparecer um botão com a logo do Maven clique, e espere baixar as depedências.
 ![Configure projeto](https://lh3.googleusercontent.com/XxTkC5fm1R6KGL4Qn-2HRwMOIersUtykQmYGnyPMLWH7BvIm2s2pnfiF2kvBNriObBaidXrRI9IJpR4nDfrIpVose2ZUqzVLqWKddAFF7idddYnUe7gkBdhYqm_GyNyZarLJjdss1t8L09V66RBceV7ZuYB7tM3Dh9YHKTIH-Hs3WrmBc2ujtRlwWisqSIHLxiQRxOGpcBncieKyLZa3VnXdYA7gJyBGlEPjuJ0s1d5fxs-Q3d5kPCsyOIVfJr_FVq9dmiRFaMGY6rj4XhPAqs0-zwLKKHdk0ZZsuwSSuSZHj7knYbIAfpTXbp2KcXmUG3ohFuk9PdJdYyV0IkgbMFWEwUjogHxTa4tS9z6Di33vUr5_rmilvxO3NIRJdhrIcwCcMWl6rp9OwgjzlvnQsXtGaOhpQAmXrC_WHqDZsBwQVTlATwW7B9ESx4lyNHklhm_zKCTsykEz0OpBGr_eZIphH3y2TML2Bx4jvwO0Cazc8P_NQoWJ6eRN8Cx3ir4zXHJLa6dKYy6OBgzpXahUdz48XphhJ6tRkkZqhJZeN8xpNnUFiszhY3RXxiwy-_vCRaQSYhA-8Ht_Wtq4V1T68wAgZXv67mRsGmi-oLOwuB1GGyZIKifK0MFpmElRqxKn7uJL-5v2fS4DlBeG7usOlouP85rjXXHDNWxmP9uGR4r9FlOdIvJUSp9erSvhiL5fSCJlvh-r8WlvV0XgBuQxceB7oe3I-YR0pHPrAmZ16zixpixZ4u5i8M2YEgSp44LnoDdUpDQ5_V6fgJzYfVPDrUMq0uyxjt5EibdQOrmb1KlE7R4urM9RTo23aSTo1dOUEAlwUixIEEmUPApKPLBoUgSAbxxk89H48rujCNYOP3AIvlOAEWLO_pkFv5Xdx2W0Oxf0CEmc5p59goxhveODj5WIPbNTILKw-rFueu495-WZ=w246-h185-no?authuser=0)
 
 
