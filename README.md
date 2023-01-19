@@ -51,26 +51,6 @@
 
 
 
-###  **Casos de testes**.
-
-#### Levantamento de casos de testes.
-
-##### CT01: Validar se existe uma camisa vermelha na lista de produtos.
-##### CT01: Validar se existe uma bolsa na lista de produtos.
-##### CT02: Validar a adição do produto ao carrinho pela lista de produtos.
-##### CT03: Validar a adição do produto ao carrinho pela pelo descrição do produto.
-##### CT04: Validar se o produto adicionado ao carrinho é o mesmo que foi escolhido.
-##### CT05: Validar exeções do formulário de informações.
-##### CT06: Validar no chekout do produto: nome;descrição;quantidade e preço total.
-##### CT07: Validar se o produto foi comprado com sucesso.
-##### CT08: Ordenar os valores por preço do menor para o maior e que seja comprado os dois produtos menores.
-##### CT09: Ordenar os valores por preço  do maior para o menor e que seja comprado os dois produtos maiores.
-##### CT010: Ordenar os valores pelo nome de A a Z  e que seja comprado os dois primeiros produtos na ordem.
-##### CT011: Ordenar os valores pelo nome de Z a A  e que seja comprado os dois primeiros produtos na ordem.
-
-
-
-
 ### **Cenários implementados**
 
     Background: realizar acesso na plataforma
