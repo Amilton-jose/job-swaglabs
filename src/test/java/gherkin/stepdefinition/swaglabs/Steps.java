@@ -31,8 +31,8 @@ public class Steps {
         checkoutPO = new CheckoutPO();
         loginPO.validarPaginaLogin();
     }
-    @Given("fiz o login com crendenciais validas fornecidas")
-    public void fiz_o_login_com_crendenciais_validas_fornecidas() {
+    @Given("fiz o login com credenciais validas fornecidas")
+    public void fiz_o_login_com_credenciais_validas_fornecidas() {
         loginPO.fazerLogin("standard_user","secret_sauce");
     }
     @When("procurar produto {string}")
@@ -51,13 +51,13 @@ public class Steps {
         carrinhoPO.btnCheckout();
         checkoutPO.inserirInformacoesEContinuar("PrimeioNome","SegundoNome","5000000");
     }
-    @Then("eu vejo a mensagem")
-    public void eu_vejo_a_mensagem()  {
+    @Then("eu vejo a mensagem de sucesso")
+    public void eu_vejo_a_mensagem_de_sucesso()  {
         checkoutPO.validarCompraSucesso();
     }
 
-    @When("ordeno os valores do maior para o menor")
-    public void ordeno_os_valores_do_maior_para_o_menor() {
+    @When("ordeno os valores do menor para o mair")
+    public void ordeno_os_valores_do_menor_para_o_mair() {
         produtoPO = new ProdutoPO();
         produtoPO.ordenarProdutos("lohi");
         appendToReport();

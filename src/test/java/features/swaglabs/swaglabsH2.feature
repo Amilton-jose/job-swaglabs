@@ -2,10 +2,10 @@ Feature:Eu, como Herói, quero ordenar os valores do menor para o maior e que se
 
   Background: realizar acesso na plataforma
     Given que eu acessei o site swag labs
-    And fiz o login com crendenciais validas fornecidas
+    And fiz o login com credenciais validas fornecidas
 
   Scenario: Ordenar os valores do menor para o maior e que seja comprado os dois produtos menores.
-    When ordeno os valores do maior para o menor
+    When ordeno os valores do menor para o mair
     And adiciono os dois produtos mais baratos
       | Sauce Labs Onesie     |
       | Sauce Labs Bike Light |
