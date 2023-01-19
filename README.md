@@ -2,6 +2,7 @@
 
 
 # DICAS DE USO
+![Gria de pastas](https://lh3.googleusercontent.com/pw/AL9nZEVmCQixEsaCKlnO7hGmaipiu4vqjMes42fsuQj8w51nKr9PAKhgQJfd9LC1mWDNLN6w85-4jLm7aQ8KTe1ye_RLG4tJVdrNNTHsKgzxaS2v2rvKh1XWfBD4aTIAMkNgRU3UCB2VAAnpRGvIr4Z61zc=w178-h625-no?authuser=0)
 
 ## **Configurando projeto**
 ### 1° Clone o projeto para seu computador
