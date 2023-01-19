@@ -28,7 +28,7 @@
 ### 1° Depois de executar os testes, vá até a pasta target. Dentro dela havéra outra pasta chamada output
 ### 2° Dentro da pasta output haverá um arquivo chamdo report.html clique nele duas vezes.
 ![Analisando evidências dos testes no dashboard](https://lh3.googleusercontent.com/-KUyOcWmy8-qR-nigDI2vEIYwtjEYty2sF4PP5zw79C8m1xzV6kcaB_At6pMuRQzN9NXzNEt3Ki4cwe4uWamkRHeLzIKNU4dh3hXbp4FZxjoPswXeazcHBaYhCBt5XYSadgu_8DLw_4MJXVx_jHr-qs_4Zg8pT5MKMnr56cLkFJVp7P7DNTF5788hCcP7qOhJvImf8Fzl9mV_W-ZQ1gJ0EtjiJvIkXyx_r1x_mcvPEIpgkyLZk9zm6AsbSGel3pF-mJ1zpSEF8f3AvQFzbnG6hjC2aLUyQ9C82KeIP17mXG9GfPT_Cqaen4Ub4O72nc6qqcssROs3rjnOcFm59y2hhnygvp27TVz4SlIM4OD_uLrmLX6H5mzhh88pJCuTB7B1Gmvbt8A367NB3RJc6rwuWbQ1K9uK6w4dUJ_fUrI55jk8Nn9waF47HRu2C58jAe44KApXvdAfrYaSgdZaZ6frWOCVdGf1tKOmfZ3G9D5JNgK0D--ssq1jfee6-_2W9IrSc8CNgyQm50sHWz8c0DqlBhcFfzt4DZuxwh2ILnnZL2qGsbFGp-zLheQxNmIqdm57NcrV3QIM_IOLkcp2aGc3nEv06GW6lOVa8Oag2gtKvnO0xIUY2m4mzbyAIQbK-ZZIPDiquMy0uyHNgIcqBuYY3rIjQrsvR3qAlSufDQD8iQsliTcKDPOt6N1nREgS57DAFk63IiTuhDadztaxZrB4cL4osmM2Sdfnoi7JrXaOF2gNbU03LkcuwMDnGPOxEvRs7HZwD0OZFRyKLCDfyRvHIbAXZAHQuCOIAQRoS03WAtOzQ-Zw8qST3QH5M7IjG9c5WebuMK7TrGe0_MkxA6ef3qKOQOKmfRsazGw3b_VG2SQyW2-n-T-blIHiC1tiPzs40LSWUIswmKtT43aKQ0P08uzN1okuO7aLzJWk3cjXjrG=w245-h184-no?authuser=0)
-### 3° Após o passo 2°. No canto superior esquerdo do documento aberto haverá opções de navegador para abrir. Clique em alguma delas e veja a analise dos testes com evidências
+### 3° Após o passo 2°. No canto superior direito do documento aberto haverá opções de navegador para abrir. Clique em alguma delas e veja a analise dos testes com evidências
 
 
 
