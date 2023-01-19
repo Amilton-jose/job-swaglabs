@@ -1,4 +1,4 @@
-# SESSÃO 1
+# SEÇÃO 1
 
 
 # DICAS DE USO
@@ -29,7 +29,7 @@
 
 
 
-# SESSÃO 2
+# SEÇÃO 2
 
 
 
