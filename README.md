@@ -1,14 +1,88 @@
+# SESSÃO 1
+
+
+# DICAS DE USO
+
+## **Configurando projeto**
+### 1° Clone o projeto para seu computador
+### 2° Depois de clonado abra o a pasta do projeto clonado na sua IDE (Exemplos: Intellij) .
+### 3° Depois de aberto o projeto. Vá até o arquivo pom.xml. Dentro desse arquivo  irá aparecer um botão com a logo do Maven clique e espera baixar as depedências.
+
+### Pronto seu projeto foi configurado.
+
+
+## **Executando os testes do projeto**
+
+### 1° Procure a pasta dentro do src na pasta test haverá uma pasta com nome java, dentro dela havéra a pasta runner.
+### 2° Dentro da pasta runner tem uma classe chamada Runner. Clique nela duas vezes e execute a mesma.
+
+### Pronto os testes serão executados
+
+
+
+## **Analisando evidências dos testes no dashboard**
+
+### 1° Depois de executar os testes, vá até a pasta target. Dentro dela havéra outra pasta chamada output
+### 2° Dentro da pasta output haverá um arquivo chamdo report.html clique nele duas vezes.
+### 3° Após o passo dois. No canto superior esquerdo do documento aberto haverá opções de navegador para abrir. Clique em alguma delas e veja a analise dos testes com evidências
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# SESSÃO 2
+
+
+
 # Plano de testes
+
+
+
 
 ### Features: Eu, como Herói, desejo realizar a compra de camisa vermelha.
 ### Features: Eu, como Herói, desejo realizar a compra de uma bolsa.
 ### Features: Eu, como Herói, quero ordenar os valores do menor para o maior e que seja comprado os dois produtos menores.
 
 
-###  **Casos de testes**.
+
+
+
+
+##  **Casos de testes**.
+
+
 
 ### CT01: Realizar compra de uma camisa vermelha.
 ### CT02: Realizar compra de uma uma bolsa.
+### CT03: Ordenar os valores do menor para o maior e que seja comprado os dois produtos menores.
+
+
+
+## **Cenários implementados**
 
 ### Background: realizar acesso na plataforma
     Given que eu acessei o site swag labs
@@ -24,9 +98,6 @@
       | "Test.allTheThings() T-Shirt (Red)" |
       | "Sauce Labs Backpack"               |
 
-
-
-### CT03: Ordenar os valores do menor para o maior e que seja comprado os dois produtos menores.
 
 
 ### Background: realizar acesso na plataforma
