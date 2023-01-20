@@ -46,7 +46,7 @@ public class CheckoutPO {
     }
 
     public void btnContinuar() {
-        appendToReportElementHighlight(getElement(By.id("continue")));
+        appendToReportElementHighlight(getElement(By.id("checkout_info")));
         elementClick(By.id("continue"));
     }
 
