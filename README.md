@@ -53,31 +53,69 @@
 
 ### **Cenários implementados**
 
-    Background: realizar acesso na plataforma
-    Given que eu acessei o site swag labs
-    And fiz o login com credenciais validas fornecidas
+
+
+    Background: realiza acesso no site
+    Given acessei o site swag labs
+    And preencher credenciais validas de login
+
+
+    Scenario: Validar se os produtos camisa vermelha e bolsa existem na lista de produtos
+    When acesso a lista de produtos
+    Then vejo o produtos
+      | Test.allTheThings() T-Shirt (Red) |
+      | Sauce Labs Backpack               |
+
+
+    Scenario: Validar a adição dos produtos camisa vermelha e bolsa ao carrinho
+    When acesso a lista de produtos
+    Then vejo o produtos
+      | Test.allTheThings() T-Shirt (Red) |
+      | Sauce Labs Backpack               |
+    And adiciono no carrinho
+    Then vejo o produtos no carrinho
+
+
+    Scenario: Validar o valor total dos produtos camisa vermelha e bolsa
+    When acesso a lista de produtos
+    Then vejo o produtos
+      | Test.allTheThings() T-Shirt (Red) |
+      | Sauce Labs Backpack               |
+    And adiciono no carrinho
+    Then vejo o produtos no carrinho
+    And acesso o checkout de informacoes
+    When preencho as informacoes de nome "nome", sobrenome "sobrenome" e codigo postal "code"
+    And clico no botao continue
+    Then vejo o valor total
+
+
+    Scenario: Validar a compra dos produtos camisa vermelha e bolsa
+    When acesso a lista de produtos
+    Then vejo o produtos
+      | Test.allTheThings() T-Shirt (Red) |
+      | Sauce Labs Backpack               |
+    And adiciono no carrinho
+    Then vejo o produtos no carrinho
+    And acesso o checkout de informacoes
+    When preencho as informacoes de nome "nome", sobrenome "sobrenome" e codigo postal "code"
+    And clico no botao continue
+    Then vejo o valor total
+    When finalizo a compra
+    Then vejo a mensagem "THANK YOU FOR YOUR ORDER"
+
+
+
+
+
+
+
+
+
+
+
     
-
-    Scenario Outline: Realizar compra de produtos
-    When procurar produto <produto>
-    And adiciono o produto no carrinho de compras
-    And finalizo a compra
-    Then eu vejo a mensagem de sucesso
-    Examples:
-      | produto                             |
-      | "Test.allTheThings() T-Shirt (Red)" |
-      | "Sauce Labs Backpack"               |
-
-
-
-    Scenario: Ordenar os valores do menor para o maior e que seja comprado os dois produtos menores.
-    When ordeno os valores do menor para o mair
-    And adiciono os dois produtos mais baratos
-      | Sauce Labs Onesie     |
-      | Sauce Labs Bike Light |
-    And eu valido os produtos no carrinho
-    And preencho dados de checkout
-    Then eu vejo a mensagem "THANK YOU FOR YOUR ORDER"
+    
+    
     
     
     
