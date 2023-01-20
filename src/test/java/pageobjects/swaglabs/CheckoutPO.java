@@ -40,7 +40,6 @@ public class CheckoutPO {
     }
 
     public void inseririnformacoes(String nome, String sobrenome, String code) {
-        appendToReportElementHighlight(getElement(By.className("checkout_info_container")));
         inserirNome(nome);
         inserirSobrenome(sobrenome);
         inserirCode(code);

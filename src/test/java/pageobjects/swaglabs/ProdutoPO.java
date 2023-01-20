@@ -65,8 +65,8 @@ public class ProdutoPO {
         List<String> nomes = new ArrayList<>();
         for (String produto : produtos
         ) {
-            appendToReportElementHighlight(pegaProduto(produto));
             nomes.add(pegaNomeProduto(produto));
+            appendToReportElementHighlight(pegaProduto(produto));
         }
         return nomes;
     }
@@ -89,8 +89,8 @@ public class ProdutoPO {
         for (String product : produtos
         ) {
             WebElement p = pegaProduto(product);
-            p.findElement(By.tagName("button")).click();
             appendToReportElementHighlight(p);
+            p.findElement(By.tagName("button")).click();
         }
     }
 

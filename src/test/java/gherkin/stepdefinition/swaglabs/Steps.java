@@ -77,13 +77,9 @@ public class Steps {
         carrinhoPO.btnCheckout();
     }
 
-    @When("preencho as informacoes de nome {string}, sobrenome {string} e codigo postal {string}")
-    public void preencho_as_informacoes_de_nome_sobrenome_e_codigo_postal(String nome, String sobrenome, String code) {
+    @When("preencho as informacoes de nome {string}, sobrenome {string} e codigo postal {string} e clico em continue")
+    public void preencho_as_informacoes_de_nome_sobrenome_e_codigo_postal_e_clico_em_continue(String nome, String sobrenome, String code) {
         checkoutPO.inseririnformacoes(nome, sobrenome, code);
-    }
-
-    @When("clico no botao continue")
-    public void clico_no_botao_continue() {
         checkoutPO.btnContinuar();
     }
 
