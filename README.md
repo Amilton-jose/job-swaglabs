@@ -55,6 +55,8 @@
 
 
 
+
+
     Background: realiza acesso no site
     Given acessei o site swag labs
     And preencher credenciais validas de login
@@ -84,8 +86,7 @@
     And adiciono no carrinho
     Then vejo o produtos no carrinho
     And acesso o checkout de informacoes
-    When preencho as informacoes de nome "nome", sobrenome "sobrenome" e codigo postal "code"
-    And clico no botao continue
+    When preencho as informacoes de nome "nome", sobrenome "sobrenome" e codigo postal "code" e clico em continue
     Then vejo o valor total
 
 
@@ -97,11 +98,20 @@
     And adiciono no carrinho
     Then vejo o produtos no carrinho
     And acesso o checkout de informacoes
-    When preencho as informacoes de nome "nome", sobrenome "sobrenome" e codigo postal "code"
-    And clico no botao continue
+    When preencho as informacoes de nome "nome", sobrenome "sobrenome" e codigo postal "code" e clico em continue
     Then vejo o valor total
     When finalizo a compra
     Then vejo a mensagem "THANK YOU FOR YOUR ORDER"
+
+
+
+
+
+
+
+
+
+
 
 
 
