@@ -8,82 +8,85 @@ import org.testng.Assert;
 import java.util.List;
 
 import static driver.Drivers.getDriver;
-import static report.Report.appendToReport;
+import static report.Report.appendToReportElementHighlight;
 import static utils.Utils.*;
+import static utils.Utils.castToFloat;
 
 public class CheckoutPO {
-    private String campoPrimeiroNome = "first-name";
-    private String campoSegundoNome = "last-name";
-    private String campoCodigoPostal = "postal-code";
-    private String btnContinuar = "continue";
-    private String btnCancelar = "cancel";
-    private String infoCompra = "summary_info";
-    private String btnFinalizar = "finish";
-    private String compraSucesso = "complete-header";
 
-    private ProdutoPO produtoPO;
-
-    /**
-     *
-     * **/
-
-    // MÉTODOS DA PÁGINA DE PÁGINA (CONFIRA: SUAS INFORMAÇÕES)
-
-    public void inserirInformacoesEContinuar(String primeiroNome, String segundoNome, String codigoPostal) {
-        elementSendKeys(By.id(campoPrimeiroNome),primeiroNome);
-        elementSendKeys(By.id(campoSegundoNome),segundoNome);
-        elementSendKeys(By.id(campoCodigoPostal),codigoPostal);
-        appendToReport();
-        elementClick(By.id(btnContinuar));
-        setBtnFinalizar();
+    public void validarPaginaCheckout() {
+        Assert.assertTrue(getElement(By.cssSelector("#header_container > div.header_secondary_container > span")).
+                isDisplayed(), "Não está na página de checkout-info");
     }
 
-    public void inserirInformacoesECancelar(String primeiroNome, String segundoNome, String codigoPostal) {
-        elementSendKeys(By.id(campoPrimeiroNome),primeiroNome);
-        elementSendKeys(By.id(campoSegundoNome),segundoNome);
-        elementSendKeys(By.id(campoCodigoPostal),codigoPostal);
-        elementClick(By.id(btnCancelar));
+    public void validarMensagemErro(String mensagem) {
+        Assert.assertEquals(getElement(By.cssSelector("#checkout_info_container > div > form > div.checkout_info > div.error-message-container.error > h3")).getText(), mensagem, "Erro não encontrado!");
     }
 
-    public void inserirInformacoes(String primeiroNome, String segundoNome, String codigoPostal) {
-        elementSendKeys(By.id(campoPrimeiroNome),primeiroNome);
-        elementSendKeys(By.id(campoSegundoNome),segundoNome);
-        elementSendKeys(By.id(campoCodigoPostal),codigoPostal);
+    public void validarCheckoutGeral(String mensagem) {
+        Assert.assertTrue(getElement(By.cssSelector("#header_container > div.header_secondary_container > span")).getText().contains(mensagem), "Não acessou checkout geral!");
     }
 
-    // MÉTODOS DA PÁGINA DE (VERIFICAÇÃO: VISÃO GERAL)
-
-
-    public void validarInfoGeral(String info){
-        Assert.assertTrue(informacoesGerais(info).isDisplayed(),"Informação não encontrada!");
+    public void inserirNome(String nome) {
+        elementSendKeys(By.id("first-name"), nome);
     }
 
-    public WebElement informacoesGerais(String info){
-        List<WebElement> elements = getDriver().findElements(By.className(infoCompra));
-        WebElement item = null;
-        for (WebElement p:elements) {
-            if(p.getText().contains(info)){
-                item = p;
-            }
+    public void inserirSobrenome(String sobrenome) {
+        elementSendKeys(By.id("last-name"), sobrenome);
+    }
+
+    public void inserirCode(String code) {
+        elementSendKeys(By.id("postal-code"), code);
+    }
+
+    public void inseririnformacoes(String nome, String sobrenome, String code) {
+        appendToReportElementHighlight(getElement(By.className("checkout_info_container")));
+        inserirNome(nome);
+        inserirSobrenome(sobrenome);
+        inserirCode(code);
+    }
+
+    public void btnContinuar() {
+        appendToReportElementHighlight(getElement(By.id("continue")));
+        elementClick(By.id("continue"));
+    }
+
+    public void btnFinalizar(){
+        elementClick(By.id("finish"));
+    }
+
+    public String pegaValorTotal() {
+        WebElement precoTotal = getElement(By.className("summary_subtotal_label"));
+        new Actions(getDriver()).moveToElement(precoTotal).build().perform();
+        String totalPrice = precoTotal.getText();
+        return totalPrice;
+    }
+
+    public void validarValorTotal(List<String> valores) {
+        Float somaValores = 0.00f;
+        for (String valor:valores
+        ) {
+            /*
+             * Removo o $ da String price
+             * */
+            valor = valor.replace("$", "");
+            somaValores = somaValores + castToFloat(valor);
         }
-        return item;
+        Assert.assertTrue(pegaValorTotal().contains(somaValores.toString()),
+                "Total price is different");
+        appendToReportElementHighlight(getElement(By.className("summary_subtotal_label")));
     }
 
-    // MÉTODOS DA PÁGINA DE (VERIFICAÇÃO: SUCESSO)
-
-    public void validarCompraSucesso(){
-        WebElement element = getElement(By.className(compraSucesso));
-        boolean flag = element.isDisplayed();
-        System.out.println(flag);
-        Assert.assertTrue(flag,"Compra não efetuada!");
+    public void validarCompraSucesso(String mensagem){
+        appendToReportElementHighlight(getElement(By.className("complete-header")));
+        Assert.assertTrue(getElement(By.className("complete-header")).getText().contains(mensagem),"Compra não efetuada!");
     }
 
-    public void setBtnFinalizar(){
-        elementClick(By.id(btnFinalizar));
-    }
-
-    public void validarCompra(String mensagem){
-        Assert.assertTrue(getElement(By.className(compraSucesso)).getText().contains(mensagem));
-    }
 
 }
+
+
+
+
+
+

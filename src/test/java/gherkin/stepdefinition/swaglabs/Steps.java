@@ -3,6 +3,8 @@ package gherkin.stepdefinition.swaglabs;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import pageobjects.swaglabs.CarrinhoPO;
 import pageobjects.swaglabs.CheckoutPO;
 import pageobjects.swaglabs.LoginPO;
@@ -12,7 +14,7 @@ import java.util.List;
 
 import static report.Report.appendToReport;
 import static report.Report.appendToReportElementHighlight;
-import static utils.Utils.espera;
+import static utils.Utils.getElement;
 
 public class Steps {
 
@@ -20,67 +22,86 @@ public class Steps {
     ProdutoPO produtoPO;
     CarrinhoPO carrinhoPO;
     CheckoutPO checkoutPO;
-    String product;
-    List<String> listProducts;
+    List<String> produtos;
+    List<String> valores;
 
-    @Given("que eu acessei o site swag labs")
-    public void que_eu_acessei_o_site_swag_labs() {
+    @Given("acessei o site swag labs")
+    public void acessei_o_site_swag_labs() {
         loginPO = new LoginPO();
         produtoPO = new ProdutoPO();
-        carrinhoPO = new CarrinhoPO();
-        checkoutPO = new CheckoutPO();
         loginPO.validarPaginaLogin();
     }
-    @Given("fiz o login com credenciais validas fornecidas")
-    public void fiz_o_login_com_credenciais_validas_fornecidas() {
-        loginPO.fazerLogin("standard_user","secret_sauce");
+
+    @Given("preencher credenciais validas de login")
+    public void preencher_credenciais_validas_de_login() {
+        loginPO.login("standard_user", "secret_sauce");
     }
-    @When("procurar produto {string}")
-    public void procurar_produto(String produto) {
-        this.product = produto;
-        produtoPO.pegaProduto(product);
+
+    @When("acesso a lista de produtos")
+    public void acesso_a_lista_de_produtos() {
+        produtoPO.validarLogin();
+        produtoPO.validarListaDeProdutos();
     }
-    @When("adiciono o produto no carrinho de compras")
-    public void adiciono_o_produto_no_carrinho_de_compras() {
-        produtoPO.adicionarProdutoCarrinho(this.product);
-        produtoPO.acessarCarrinho();
+
+    @When("ordenar produtos {string}")
+    public void ordenar_produyos(String ordem) {
+        produtoPO = new ProdutoPO();
+        produtoPO.ordenarProdutos(ordem);
     }
+
+
+    @Then("vejo o produtos")
+    public void vejo_o_produtos(io.cucumber.datatable.DataTable dataTable) {
+        produtos = dataTable.asList();
+        produtoPO.validaProdutos(produtos);
+    }
+
+    @Then("adiciono no carrinho")
+    public void adiciono_no_carrinho() {
+        produtoPO = new ProdutoPO();
+        carrinhoPO = new CarrinhoPO();
+        valores = produtoPO.pegoValores(produtos);
+        produtoPO.adicionarProdutos(produtos);
+    }
+
+    @Then("vejo o produtos no carrinho")
+    public void vejo_o_produtos_no_carrinho() {
+        carrinhoPO = new CarrinhoPO();
+        carrinhoPO.validaProdutosNoCarrinho(produtos);
+    }
+
+    @Then("acesso o checkout de informacoes")
+    public void acesso_o_checkout_de_informacoes() {
+        carrinhoPO = new CarrinhoPO();
+        checkoutPO = new CheckoutPO();
+        carrinhoPO.btnCheckout();
+    }
+
+    @When("preencho as informacoes de nome {string}, sobrenome {string} e codigo postal {string}")
+    public void preencho_as_informacoes_de_nome_sobrenome_e_codigo_postal(String nome, String sobrenome, String code) {
+        checkoutPO.inseririnformacoes(nome, sobrenome, code);
+    }
+
+    @When("clico no botao continue")
+    public void clico_no_botao_continue() {
+        checkoutPO.btnContinuar();
+    }
+
+    @Then("vejo o valor total")
+    public void vejo_o_valor_total() {
+        checkoutPO.validarValorTotal(valores);
+    }
+
     @When("finalizo a compra")
     public void finalizo_a_compra() {
-        carrinhoPO.validarProdutoNoCarrinho(this.product);
-        carrinhoPO.btnCheckout();
-        checkoutPO.inserirInformacoesEContinuar("PrimeioNome","SegundoNome","5000000");
-    }
-    @Then("eu vejo a mensagem de sucesso")
-    public void eu_vejo_a_mensagem_de_sucesso()  {
-        checkoutPO.validarCompraSucesso();
+        checkoutPO = new CheckoutPO();
+        checkoutPO.btnFinalizar();
     }
 
-    @When("ordeno os valores do menor para o mair")
-    public void ordeno_os_valores_do_menor_para_o_mair() {
-        produtoPO = new ProdutoPO();
-        produtoPO.ordenarProdutos("lohi");
-        appendToReport();
-    }
-    @When("adiciono os dois produtos mais baratos")
-    public void adiciono_os_dois_produtos_mais_baratos(io.cucumber.datatable.DataTable dataTable) {
-        listProducts = dataTable.asList();
-        produtoPO.adicionaProdutos(listProducts);
-    }
-    @When("eu valido os produtos no carrinho")
-    public void eu_valido_os_produtos_no_carrinho() {
-       carrinhoPO = new CarrinhoPO();
-       produtoPO.acessarCarrinho();
-       carrinhoPO.validateProductsAndCheckout(listProducts);
-    }
-    @When("preencho dados de checkout")
-    public void preencho_dados_de_checkout() {
-       checkoutPO.inserirInformacoesEContinuar("Amilton","jose","53550837");
+    @Then("vejo a mensagem {string}")
+    public void vejo_a_mensagem(String mensagem) {
+        checkoutPO.validarCompraSucesso(mensagem);
     }
 
-    @Then("eu vejo a mensagem {string}")
-    public void eu_vejo_a_mensagem(String mensagem) {
-        checkoutPO.validarCompra(mensagem);
-    }
 
 }

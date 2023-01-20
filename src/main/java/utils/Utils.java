@@ -76,4 +76,8 @@ public class Utils {
         }
     }
 
+    public static Float castToFloat(String value) {
+        return Float.parseFloat(value);
+    }
+
 }

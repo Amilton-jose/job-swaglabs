@@ -1,11 +1,14 @@
 package pageobjects.swaglabs;
 
+import io.cucumber.java.sl.In;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import static driver.Drivers.getDriver;
@@ -15,35 +18,66 @@ import static utils.Utils.*;
 
 public class ProdutoPO {
 
-    private String listaProdutos = "inventory_item";
-    private String adicionarCarrinho = "button";
-    private String btnCarrinho = "shopping_cart_badge";
-    private String precoProduto = "inventory_item_price";
-    private String ordemProduto = "product_sort_container";
 
+    public void validarLogin() {
+        Assert.assertTrue(getElement(By.className("title")).isDisplayed(), "O login não foi efetuado!");
+    }
 
+    public void validarListaDeProdutos() {
+        appendToReportElementHighlight(getElement(By.className("inventory_list")));
+        Assert.assertTrue(getElement(By.className("inventory_list")).isDisplayed(), "A lista não foi encontrada!");
+    }
 
     public void ordenarProdutos(String ordem) {
-        WebElement element = getDriver().findElement(By.className(ordemProduto));
+        WebElement element = getDriver().findElement(By.className("product_sort_container"));
+        appendToReportElementHighlight(element);
         Select select = new Select(element);
-        select.selectByValue(ordem);
+        appendToReportElementHighlight(element);
+        select.selectByVisibleText(ordem);
     }
 
-    public void adicionaProdutos(List<String> produtos) {
+
+
+    public String pegaNomeProduto(String produto) {
+        WebElement item = pegaProduto(produto);
+        String nome = item.findElement(By.className("inventory_item_name")).getText();
+        return nome;
+    }
+
+    public String pegaValor(String produto) {
+        WebElement item = pegaProduto(produto);
+        String price = item.findElement(By.className("inventory_item_price")).getText();
+        return price;
+    }
+
+
+    public List<String> pegoValores(List<String> produtos) {
+        List<String> prices = new ArrayList<>();
         for (String produto:produtos
         ) {
-            WebElement p = pegaProduto(produto);
-            p.findElement(By.tagName("button")).click();
+            prices.add(pegaValor(produto));
         }
+        return prices;
     }
 
 
+    public List<String> validaProdutos(List<String> produtos) {
+        List<String> nomes = new ArrayList<>();
+        for (String produto : produtos
+        ) {
+            appendToReportElementHighlight(pegaProduto(produto));
+            nomes.add(pegaNomeProduto(produto));
+        }
+        return nomes;
+    }
 
-    public WebElement pegaProduto(String produto) {
-        List<WebElement> produtos = getDriver().findElements(By.className(listaProdutos));
+    public WebElement pegaProduto(String produtos) {
+        WebElement list = getElement(By.className("inventory_list"));
+        List<WebElement> products = list.findElements(By.className("inventory_item"));
         WebElement item = null;
-        for (WebElement p : produtos) {
-            if (p.getText().contains(produto)) {
+        for (WebElement p : products
+        ) {
+            if (p.getText().contains(produtos)) {
                 item = p;
                 break;
             }
@@ -51,16 +85,16 @@ public class ProdutoPO {
         return item;
     }
 
-
-    public void adicionarProdutoCarrinho(String produto) {
-      WebElement element =  pegaProduto(produto);
-      new Actions(getDriver()).moveToElement(element).build().perform();
-      element.findElement(By.tagName(adicionarCarrinho)).click();
-      appendToReportElementHighlight(element);
+    public void adicionarProdutos(List<String> produtos) {
+        for (String product : produtos
+        ) {
+            WebElement p = pegaProduto(product);
+            p.findElement(By.tagName("button")).click();
+            appendToReportElementHighlight(p);
+        }
     }
 
-    public void acessarCarrinho() {
-        elementClick(By.className(btnCarrinho));
-    }
+
+
 
 }
