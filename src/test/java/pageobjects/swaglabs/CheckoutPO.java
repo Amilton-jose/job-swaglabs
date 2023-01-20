@@ -43,10 +43,10 @@ public class CheckoutPO {
         inserirNome(nome);
         inserirSobrenome(sobrenome);
         inserirCode(code);
+        appendToReportElementHighlight(getElement(By.className("checkout_info")));
     }
 
     public void btnContinuar() {
-        appendToReportElementHighlight(getElement(By.id("checkout_info")));
         elementClick(By.id("continue"));
     }
 
