@@ -86,7 +86,7 @@
       <version>7.10.1</version>
       <scope>compile</scope>
     </dependency>
-
+    <!-- Cucumber report dependency-->
     <dependency>
       <groupId>com.vimalselvam</groupId>
       <artifactId>cucumber-extentsreport</artifactId>
