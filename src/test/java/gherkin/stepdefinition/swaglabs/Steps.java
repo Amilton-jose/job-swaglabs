@@ -44,7 +44,7 @@ public class Steps {
     }
 
     @When("ordenar produtos {string}")
-    public void ordenar_produyos(String ordem) {
+    public void ordenar_produtos(String ordem) {
         produtoPO = new ProdutoPO();
         produtoPO.ordenarProdutos(ordem);
     }

@@ -30,9 +30,7 @@ public class ProdutoPO {
 
     public void ordenarProdutos(String ordem) {
         WebElement element = getDriver().findElement(By.className("product_sort_container"));
-        appendToReportElementHighlight(element);
         Select select = new Select(element);
-        appendToReportElementHighlight(element);
         select.selectByVisibleText(ordem);
     }
 
@@ -89,8 +87,8 @@ public class ProdutoPO {
         for (String product : produtos
         ) {
             WebElement p = pegaProduto(product);
-            appendToReportElementHighlight(p);
             p.findElement(By.tagName("button")).click();
+            appendToReportElementHighlight(p);
         }
     }
 
